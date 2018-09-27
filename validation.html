@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Web Form Assignment</title>
+<style>
+
+body{
+background: #ECECEC;
+text-align: center;
+margin: 0 auto;
+}
+
+
+form{
+margin: 0 auto;
+padding: 2% 0;
+width: 50%;
+text-align: left;
+}
+
+
+label {
+text-align:left;
+clear: both;
+width: 30%;
+margin: 2px 2px;
+float: left;
+
+
+}
+
+input {
+text-align: left;
+width: 60%;
+margin: 2px 2px;
+float: right;
+
+}
+
+select {
+text-align: left;
+width: 61.5%;
+margin: 2px 2px;
+float: right;
+}
+
+fieldset.right{
+border-radius: 10px;
+background-color: #FFFFFF;
+float:right;
+width:40%;height: 120px;
+padding:10px 10px;
+margin: 0px 2px;
+}
+
+fieldset.left{
+
+background-color: #FFFFFF;
+border-radius: 10px;
+float:left; 
+width:40%; 
+height: 120px; 
+padding:10px 10px; 
+margin: 0px 2px;
+
+}
+legend{
+font-family: Verdana;
+font-weight: bold;
+font-size: 11pt
+}
+
+div.centerBox{
+clear: both;
+width: 100px;
+height: 10%;
+padding-top: 10px;
+
+text-align: center;
+margin: 0 auto;
+}
+
+</style>
+
+<script> 
+function chooseBackColor(select) {
+document.body.style.backgroundColor = select.value;
+return true;
+}
+
+function choosetextColor(select){
+document.body.style.color = select.value;
+}
+
+function dateTime(){
+dateAndTime= new Date();
+document.getElementById("time").innerHTML = dateAndTime;
+}
+
+function validateForm(){
+
+var a = validateNames();
+if (a == false){
+document.getElementById("error").innerHTML="First and Last Name are required entry fields!";
+return false;
+}
+var b = validateZipCode();
+if (b == false){
+document.getElementById("error").innerHTML="Zip Code is a required entry field!";
+document.assignmentForm.USzipCode.focus();
+document.assignmentForm.USzipCode.style.borderColor="red";
+return false;
+}
+var c = validatePhone();
+if(c == false){
+document.getElementById("error").innerHTML="Phone number is a required entry field!";
+document.assignmentForm.phoneNumber.focus();
+document.assignmentForm.phoneNumber.style.borderColor="red";
+return false;
+}
+
+var d = validateEmail();
+if (d == false){
+document.getElementById("error").innerHTML="Email address is a required entry field!";
+document.assignmentForm.emailAddress.focus();
+document.assignmentForm.emailAddress.style.borderColor="red";
+}
+return false;
+}
+
+function validateNames(){
+var first = document.assignmentForm.firstName.value;
+var second = document.assignmentForm.lastName.value;
+
+if (first==null || first == "" || first.length == 0)  {
+  alert("First name must be filled out!");
+	document.assignmentForm.firstName.focus();
+	document.assignmentForm.firstName.style.borderColor="red";
+  return false;
+  }
+if (second == null || second == "" || second.length == 0){
+  alert("Last name must be filled out!");
+	document.assignmentForm.lastName.focus();
+	document.assignmentForm.lastName.style.borderColor="red";
+  return false;
+  }
+  return true;
+ }
+ 
+ function validateZipCode(){
+  var regexpress = /^\d{5}$|^\d{5}-\d{4}$/;
+  if(regexpress.test(document.assignmentForm.USzipCode.value)){
+	return true;
+  }else{
+  alert("Must enter a valid 5 or 9 digit zip code!");
+  return false;
+	}
+ }
+ 
+ function validatePhone(){
+	var regexpressWithoutSpace = /^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$/; <!-- ex. (000) 000-0000 -->
+	var regexpressWithSpace = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;	  <!-- ex (000)000-0000   -->
+	var regexpressTenDigits = /^[0-9]{10}$/;
+	if(regexpressTenDigits.test(document.assignmentForm.phoneNumber.value) || regexpressWithoutSpace.test(document.assignmentForm.phoneNumber.value) || regexpressWithSpace.test(document.assignmentForm.phoneNumber.value)){
+	return true;
+	}else{
+	alert("Must enter phone number in format (000) 000-0000 OR (000)000-000 OR 0000000000");
+	return false;
+ }
+ }
+ 
+ function validateEmail(){
+	<!--var regexpress = /^[^@]+@[^@.]+\.[^@]*\w\w$/--> 
+	var regexpress = /.+\@(.{1,}\.)+.{2,}/
+	if (regexpress.test(document.assignmentForm.emailAddress.value)){
+	return true;
+	}else{
+	alert("Must enter a valid email address!");
+	document.assignmentForm.emailAddress.focus();
+	return false;
+	}
+ }
+ 
+</script>
+</head>
+<body onload="dateTime()">
+<br><br><br>
+<div style="padding-bottom: 0px; color: red;" id="error"></div>
+<form id="assignmentForm" name="assignmentForm" method="post"  onsubmit="return validateForm()" action="mailto:jesseblu@buffalo.edu?HTML_Forms_assignment" novalidate>
+<!--<form id = "assignmentForm" name="assignmentForm" method = "POST" action="" onsubmit="return validate()">-->
+<div>
+<fieldset class="left">
+<legend>Personal Contact Information</legend>
+
+
+<label for="firstName">First Name:</label>
+<input id="firstName" name="firstName" type="text" placeholder="John"/>
+<label for="lastName">Last Name:</label>
+<input id="lastName" name="lastName" type="text" placeholder="Smith"/>
+<label for="phoneNumber">Phone #:</label>
+<!--<input id="phoneNumber" name="phoneNumber" type="tel" pattern="[\(]\d{3}[\)]\d{3}[\-]\d{4}" placeholder="(123)456-7890"/>-->
+<input id="phoneNumber" name="phoneNumber" type="tel" placeholder="(123)456-7890"/>
+
+<label for="emailAddress">Email:</label>
+<input id="emailAddress" name="emailAddress" type="email" placeholder="JSmith@generic.org"/>
+</fieldset>
+
+<fieldset class="right">
+<legend>Mailing Address</legend>
+<label for="streetAddressOne">Address :</label>
+<input id="streetAddressOne" name="streetAddress" type="text" placeholder="123 Cherry Street"/>
+<label for="streetAddressTwo">Address 2:</label>
+<input id="streetAddressTwo" name="streetAddressTwo" type="text" placeholder="Apt or Suite #, Floor, etc"/>
+<label for="USstates">State :</label>
+<Select id="USstates" name="USstates">
+	<option value="AL">Alabama (AL)</option>
+	<option value="AK">Alaska (AK)</option>
+	<option value="AZ">Arizona (AZ)</option>
+	<option value="AR">Arkansas (AR)</option>
+	<option value="CA">California (CA)</option>
+	<option value="CO">Colorado (CO)</option>
+	<option value="CT">Connecticut (CT)</option>
+	<option value="DE">Delaware (DE)</option>
+	<option value="DC">District Of Columbia (DC)</option>
+	<option value="FL">Florida (FL)</option>
+	<option value="GA">Georgia (GA)</option>
+	<option value="HI">Hawaii (HI)</option>
+	<option value="ID">Idaho (ID)</option>
+	<option value="IL">Illinois (IL)</option>
+	<option value="IN">Indiana (IN)</option>
+	<option value="IA">Iowa (IA)</option>
+	<option value="KS">Kansas (KS)</option>
+	<option value="KY">Kentucky (KY)</option>
+	<option value="LA">Louisiana (LA)</option>
+	<option value="ME">Maine (ME)</option>
+	<option value="MD">Maryland (MD)</option>
+	<option value="MA">Massachusetts (MA)</option>
+	<option value="MI">Michigan (MI)</option>
+	<option value="MN">Minnesota (MN)</option>
+	<option value="MS">Mississippi (MS)</option>
+	<option value="MO">Missouri (MO)</option>
+	<option value="MT">Montana (MT)</option>
+	<option value="NE">Nebraska (NE)</option>
+	<option value="NV">Nevada (NV)</option>
+	<option value="NH">New Hampshire (NH)</option>
+	<option value="NJ">New Jersey (NJ)</option>
+	<option value="NM">New Mexico (NM)</option>
+	<option value="NY">New York (NY)</option>
+	<option value="NC">North Carolina (NC)</option>
+	<option value="ND">North Dakota (ND)</option>
+	<option value="OH">Ohio (OH)</option>
+	<option value="OK">Oklahoma (OK)</option>
+	<option value="OR">Oregon (OR)</option>
+	<option value="PA">Pennsylvania (PA)</option>
+	<option value="RI">Rhode Island (RI)</option>
+	<option value="SC">South Carolina (SC)</option>
+	<option value="SD">South Dakota (SD)</option>
+	<option value="TN">Tennessee (TN)</option>
+	<option value="TX">Texas (TX)</option>
+	<option value="UT">Utah (UT)</option>
+	<option value="VT">Vermont (VT)</option>
+	<option value="VA">Virginia (VA)</option>
+	<option value="WA">Washington (WA)</option>
+	<option value="WV">West Virginia (WV)</option>
+	<option value="WI">Wisconsin (WI)</option>
+	<option value="WY">Wyoming (WY)</option>
+	<option value="AS">American Samoa (AS)</option>
+	<option value="GU">Guam (GU)</option>
+	<option value="MP">Northern Mariana Islands (MP)</option>
+	<option value="PR">Puerto Rico (PR)</option>
+	<option value="UM">United States Minor Outlying Islands (UM)</option>
+	<option value="VI">Virgin Islands (VI)</option>
+</Select>				
+<label for="USzipCode">Zip Code</label> 
+<!--<input id="USzipCode" name="USzipCode" type="text" pattern="[0-9]{5}" title="5 digit zip code"/>--> 
+<input id="USzipCode" name="USzipCode" type="text" title="5 or 9 digit zip code"/>
+
+
+</fieldset>
+</div>
+
+<div id="time" style="clear: both; width: 80%; height: 2%; text-align:center; margin-right: auto; margin-left: auto; padding-top: 5px;">
+<!-- Time and Date display here -->
+</div>
+
+<div class="centerBox">
+<div>Background Color</div>
+<label for="radioOne">White</label>
+<input id="radioOne" type="radio" name="backColor" value="white" onClick="chooseBackColor(this)"/> 
+<label for="radioTwo">Gray</label>
+<input id="radioTwo" type="radio" name="backColor" value="LightGray" onClick="chooseBackColor(this)"/>
+<label for="radioThree">Blue</label>
+<input id="radioThree" type="radio" name="backColor" value="blue" onClick="chooseBackColor(this)"/>
+</div>
+
+<div class="centerBox">
+<p>Text Color</p>
+<label for="radioFour">Black</label>
+<input id="radioFour" type="radio" name="textColor" value="black" onClick="choosetextColor(this)"/> 
+<label for="radioFive">Green</label>
+<input id="radioFive" type="radio" name="textColor" value="green" onClick="choosetextColor(this)"/>
+<label for="radioSix">Purple</label>
+<input id="radioSix" type="radio" name="textColor" value="purple" onClick="choosetextColor(this)"/>
+</div>
+
+
+<div id="button1" style="clear: both; text-align: center; padding-top: 5px;">
+	
+    <button id="submit" name="submit" type="submit">OK Send My Data</button>
+</div>
+</form>
+
+<div id="last">
+<a href="http://buffalo.edu/~jesseblu/index.html" target="_blank">Jesse's Home Page</a>
+</div>
+
+</body>
+
+
+</html>
+ 

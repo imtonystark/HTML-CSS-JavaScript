@@ -1,0 +1,115 @@
+@media print {
+	
+.no-print, .no-print *{
+display: none !important;
+}
+
+a{
+	color: green;
+}
+
+p {
+text-align: center;
+
+}
+.mainImage{
+	
+	visibility: hidden;
+}
+.introductory{
+	font-family: Arial, sans-serif;
+	width: 400px;
+	text-align: center;
+	height: auto;
+	margin: auto;
+}
+
+table, th, td {
+	background-color: #CCCCCC;
+	text-align: center; 
+	margin-left:auto; 
+	margin-right:auto; 
+	align:center; 
+	border: 1px solid black;	
+}
+
+}
+@media screen{
+body{
+text-align: center;
+font-family: georgia;
+}
+p {
+text-align: left;
+margin-left: 25%;
+margin-right: 25%;
+}
+
+b {
+font-weight: bolder;
+}
+
+h1 {
+font-size: 35px;	
+}
+h1, h2, h3, h4, h5, h6 {
+text-align: center;
+}
+hr {
+border: 4px ridge #808080; height: 3px; background-color: #0000FF; width: 95%;
+}
+#narrow {
+border: 4px ridge #808080; height: 3px; background-color: #0000FF; width: 80%;
+}
+.mainImage{
+	width: 50px;
+	height: 50px;
+	float: right;
+	padding: 5px;
+	margin: 5px 20px 5px 20px;
+	
+}
+.introductory{
+	font-family: "Verdana",Verdana, serif;
+	width: 400px;
+	height: 200px;
+	margin: auto;
+}
+
+ol{
+	display: block;
+	align-text: left;
+	start: 2;
+	
+}
+strikeThru{
+text-decoration-line: line-through;	
+}
+table {
+	background-color: #CCCCCC;
+	text-align: center; 
+	margin-left:auto; 
+	margin-right:auto; 
+	align:center; 
+	border-collapse: collapse;	
+}
+
+ul {
+text-align: left;
+margin-left: 25%;
+margin-right: 25%;
+}
+table {
+margin-right:auto; 
+margin-left:auto;
+ align: center
+}
+#icons {
+width: 200px;
+height: 175px;
+}
+
+.pCentered{
+text-align: center
+}
+}

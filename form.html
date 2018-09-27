@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Web Form Assignment</title>
+<style>
+
+body{
+background: #ECECEC;
+text-align: center;
+margin: 0 auto;
+}
+
+form{
+margin: 0 auto;
+padding: 2% 0;
+width: 50%;
+text-align: left;
+}
+
+
+label {
+text-align:left;
+clear: both;
+width: 30%;
+margin: 2px 2px;
+float: left;
+
+
+}
+
+input {
+text-align: left;
+width: 60%;
+margin: 2px 2px;
+float: right;
+
+}
+
+select {
+text-align: left;
+width: 61.5%;
+margin: 2px 2px;
+float: right;
+}
+
+fieldset.right{
+border-radius: 10px;
+background-color: #FFFFFF;
+float:right;
+width:40%;height: 120px;
+padding:10px 10px;
+margin: 0px 2px;
+}
+
+fieldset.left{
+
+background-color: #FFFFFF;
+border-radius: 10px;
+float:left; 
+width:40%; 
+height: 120px; 
+padding:10px 10px; 
+margin: 0px 2px;
+
+}
+legend{
+font-family: Verdana;
+font-weight: bold;
+font-size: 11pt
+}
+
+</style>
+</head>
+<body>
+<form id = "assignmentForm" method = "POST" action="mailto:jesseblu@buffalo.edu?HTML_Forms_assignment">
+
+<div>
+<fieldset class="left">
+<legend>Personal Contact Information</legend>
+
+
+<label for="firstName">First Name:</label>
+<input id="firstName" name="firstName" type="text" placeholder="John" required/>
+<label for="lastName">Last Name:</label>
+<input id="lastName" name="lastName" type="text" placeholder="Smith" required/>
+<label for="phoneNumber">Phone #:</label>
+<input id="phoneNumber" name="phoneNumber" type="tel" pattern="[\(]\d{3}[\)]\d{3}[\-]\d{4}" placeholder="(123)456-7890"/>
+<label for="emailAddress">Email:</label>
+<input id="emailAddress" name="emailAddress" type="email" placeholder="JSmith@generic.org" required/>
+</fieldset>
+
+<fieldset class="right">
+<legend>Mailing Address</legend>
+<label for="streetAddressOne">Address :</label>
+<input id="streetAddressOne" name="streetAddress" type="text" placeholder="123 Cherry Street"/>
+<label for="streetAddressTwo">Address 2:</label>
+<input id="streetAddressTwo" name="streetAddressTwo" type="text" placeholder="Apt or Suite #, Floor, etc"/>
+<label for="USstates">State :</label>
+<Select id="USstates" name="USstates">
+	<option value="AL">Alabama (AL)</option>
+	<option value="AK">Alaska (AK)</option>
+	<option value="AZ">Arizona (AZ)</option>
+	<option value="AR">Arkansas (AR)</option>
+	<option value="CA">California (CA)</option>
+	<option value="CO">Colorado (CO)</option>
+	<option value="CT">Connecticut (CT)</option>
+	<option value="DE">Delaware (DE)</option>
+	<option value="DC">District Of Columbia (DC)</option>
+	<option value="FL">Florida (FL)</option>
+	<option value="GA">Georgia (GA)</option>
+	<option value="HI">Hawaii (HI)</option>
+	<option value="ID">Idaho (ID)</option>
+	<option value="IL">Illinois (IL)</option>
+	<option value="IN">Indiana (IN)</option>
+	<option value="IA">Iowa (IA)</option>
+	<option value="KS">Kansas (KS)</option>
+	<option value="KY">Kentucky (KY)</option>
+	<option value="LA">Louisiana (LA)</option>
+	<option value="ME">Maine (ME)</option>
+	<option value="MD">Maryland (MD)</option>
+	<option value="MA">Massachusetts (MA)</option>
+	<option value="MI">Michigan (MI)</option>
+	<option value="MN">Minnesota (MN)</option>
+	<option value="MS">Mississippi (MS)</option>
+	<option value="MO">Missouri (MO)</option>
+	<option value="MT">Montana (MT)</option>
+	<option value="NE">Nebraska (NE)</option>
+	<option value="NV">Nevada (NV)</option>
+	<option value="NH">New Hampshire (NH)</option>
+	<option value="NJ">New Jersey (NJ)</option>
+	<option value="NM">New Mexico (NM)</option>
+	<option value="NY">New York (NY)</option>
+	<option value="NC">North Carolina (NC)</option>
+	<option value="ND">North Dakota (ND)</option>
+	<option value="OH">Ohio (OH)</option>
+	<option value="OK">Oklahoma (OK)</option>
+	<option value="OR">Oregon (OR)</option>
+	<option value="PA">Pennsylvania (PA)</option>
+	<option value="RI">Rhode Island (RI)</option>
+	<option value="SC">South Carolina (SC)</option>
+	<option value="SD">South Dakota (SD)</option>
+	<option value="TN">Tennessee (TN)</option>
+	<option value="TX">Texas (TX)</option>
+	<option value="UT">Utah (UT)</option>
+	<option value="VT">Vermont (VT)</option>
+	<option value="VA">Virginia (VA)</option>
+	<option value="WA">Washington (WA)</option>
+	<option value="WV">West Virginia (WV)</option>
+	<option value="WI">Wisconsin (WI)</option>
+	<option value="WY">Wyoming (WY)</option>
+	<option value="AS">American Samoa (AS)</option>
+	<option value="GU">Guam (GU)</option>
+	<option value="MP">Northern Mariana Islands (MP)</option>
+	<option value="PR">Puerto Rico (PR)</option>
+	<option value="UM">United States Minor Outlying Islands (UM)</option>
+	<option value="VI">Virgin Islands (VI)</option>
+</Select>				
+<label for="USzipCode">Zip Code</label> 
+<input id="USzipCode" name="USzipCode" type="text" pattern="[0-9]{5}" title="5 digit zip code" required/>
+
+
+</fieldset>
+</div>
+
+
+
+<div id="button1" style="clear: both; text-align: center; padding-top: 5px;">
+	
+    <button id="submit" name="submit" type="submit">OK Send My Data</button>
+</div>
+</form>
+
+<div id="last">
+<a href="http://buffalo.edu/~jesseblu/index.html" target="_blank">Jesse's Home Page</a>
+</div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,85 @@
+html, body{
+	margin:0;
+	padding:0;
+}
+p{
+text-align: center;	
+}
+#header, #footer {
+
+display: center;
+border: 2px ridge black;
+border-radius: 10px;
+clear: both;
+margin-right: auto;
+margin-left: auto;
+width:90%;
+
+padding: 2%;
+
+
+}
+
+#footer {
+
+display: center;
+border: 2px ridge black;
+border-radius: 10px;
+clear: both;
+margin-right: auto;
+margin-left: auto;
+width:50%;
+
+padding: 1%;
+
+
+}
+
+#middle {
+margin-right: auto;
+margin-left: auto;
+width: 90%;	
+}
+h1{
+	display: inline;
+	text-align: center;
+}
+
+a{
+display: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+.inline{
+	display: inline;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+.left{
+	
+	float: left;
+	border: 2px ridge black;
+    border-radius: 10px;
+	margin: 1% 1% 1% 1%;
+	width: 45%;
+	
+}
+
+.center{
+display: none ;
+}
+.right{
+	
+	float: right;
+	border: 2px ridge black;
+	margin: 1% 1% 1% 1%;
+    border-radius: 10px;
+	width: 45%;
+
+}
+.strikeThru{
+	text-decoration: line-through;
+}
